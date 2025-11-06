@@ -1,69 +1,127 @@
+/* 🌸 General Page Style */
 body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ffeaf2, #e5f6ff);
+  color: #444;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff0f5; /* pastel pink */
-  color: #4a4a4a;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 60px 30px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #d63384;
+  font-size: 2em;
+  color: #e97ba1;
+  margin-bottom: 15px;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.6;
-  margin-bottom: 30px;
+  color: #555;
 }
 
+/* 🌼 Buttons */
 .button-group {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 15px;
 }
 
 .button {
-  text-decoration: none;
-  background-color: #ffb6c1;
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #fcb7d1;
   color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-  background-color: #ff92a5;
+  background-color: #e97ba1;
+  transform: scale(1.05);
 }
 
-.calendar-image {
-  width: 100%;
+/* 💌 Calendar (Timeline Page) */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin: 30px auto;
   max-width: 400px;
-  border-radius: 15px;
-  margin: 20px 0;
+  background: #fffafc;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.day-name {
+  text-align: center;
+  font-weight: bold;
+  color: #d48fb2;
+}
+
+.day, .empty {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #444;
+}
+
+.day {
+  background-color: #fce7ef;
+}
+
+.day.special {
+  background-color: #ffb6c1;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
+  transform: scale(1.1);
+  animation: pulse 2s infinite;
+}
+
+/* 💞 Animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 16px rgba(255, 182, 193, 0.9);
+  }
+}
+
+/* 🌷 Responsive */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
-
-  .button {
-    padding: 10px 18px;
+  .calendar {
+    gap: 5px;
+    padding: 15px;
+  }
+  .day, .empty {
+    height: 35px;
     font-size: 0.9em;
-  }
-
-  .container {
-    padding: 40px 20px;
   }
 }
